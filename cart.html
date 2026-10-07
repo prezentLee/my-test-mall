@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M27NDT32');</script>
+<!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <title>테스트 쇼핑몰 - 장바구니</title>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M27NDT32"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+    <h1>🛒 장바구니</h1>
+    <hr>
+    <div>
+        <p>선택하신 상품: <b>상품 A (1개)</b> - 50,000원</p>
+        <button id="checkout-btn" style="padding: 10px 20px; font-size: 16px; background-color: json; cursor: pointer;">주문하기 (결제 시작)</button>
+    </div>
+
+    <script>
+        document.getElementById('checkout-btn').addEventListener('click', function() {
+            // GA4 표준 규격 'begin_checkout'
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'event': 'begin_checkout',
+                'ecommerce': {
+                    'currency': 'KRW',
+                    'value': 50000,
+                    'items': [{
+                        'item_id': 'PROD_12345',
+                        'item_name': '테스트 상품 A',
+                        'price': 50000,
+                        'quantity': 1
+                    }]
+                }
+            });
+            
+            alert('결제를 시작합니다. 가상 완료 페이지로 이동합니다.');
+            location.href = 'thankyou.html'; // 완료 페이지로 이동
+        });
+    </script>
+</body>
+</html>
