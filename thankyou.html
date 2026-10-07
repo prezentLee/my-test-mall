@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M27NDT32');</script>
+<!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <title>테스트 쇼핑몰 - 주문완료</title>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M27NDT32"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+    <h1>🎉 주문이 완료되었습니다!</h1>
+    <hr>
+    <a href="index.html">메인으로 돌아가기</a>
+
+    <script>
+        // 페이지가 로드되자마자 즉시 'purchase' 이벤트 발송
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            'event': 'purchase',
+            'ecommerce': {
+                'transaction_id': 'T_' + String(new Date().getTime()), // 고유 주문번호 랜덤 생성
+                'value': 50000,
+                'currency': 'KRW',
+                'items': [{
+                    'item_id': 'PROD_12345',
+                    'item_name': '테스트 상품 A',
+                    'price': 50000,
+                    'quantity': 1
+                }]
+            }
+        });
+    </script>
+</body>
+</html>
