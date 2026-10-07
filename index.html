@@ -16,7 +16,38 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M27NDT32"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-    <h1>성공!</h1>
-    <p>뭔가 추가</p>
+
+    <h1>🎁 HJLEE 쇼핑몰 🎁</h1>
+    <hr>
+    <div>
+        <h3>상품 A (가격: 50,000원)</h3>
+        <p>상품 A</p>
+        <!-- 클릭 시 데이터레이어를 쏘고 페이지를 이동시키는 버튼 -->
+        <button id="cart-btn" style="padding: 10px 20px; font-size: 16px; cursor: pointer;">장바구니 담기</button>
+    </div>
+
+    <script>
+        document.getElementById('cart-btn').addEventListener('click', function() {
+            // GA4 표준 전자상거래(Ecommerce) 'add_to_cart' 규격
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'event': 'add_to_cart',
+                'ecommerce': {
+                    'currency': 'KRW',
+                    'value': 50000,
+                    'items': [{
+                        'item_id': 'PROD_12345',
+                        'item_name': '테스트 상품 A',
+                        'price': 50000,
+                        'quantity': 1
+                    }]
+                }
+            });
+            
+            alert('장바구니에 담겼습니다! 장바구니 페이지로 이동합니다.');
+            location.href = 'cart.html'; // 장바구니 페이지로 이동
+        });
+    </script>
+
 </body>
 </html>
